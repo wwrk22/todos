@@ -10,4 +10,12 @@ RSpec.feature "User vists homepage", type: :feature do
     # `page` is provided by Capybara
     expect(page).to have_css 'h1', text: 'Todos'
   end
+
+  # Example to show how `have_current_path` works.
+  scenario "at the correct path" do
+    # We expect the page that we `visit` to have the path returned by
+    # `root_path`.
+    visit root_path
+    expect(page).to have_current_path(root_path)
+  end
 end
