@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature "User creates todo" do
+RSpec.feature "User creates todo", type: :feature do
   scenario "successfully" do
-    visit root_path
+    sign_in
 
     click_on "Add a new todo"
     fill_in "todo_title", with: "Buy milk"

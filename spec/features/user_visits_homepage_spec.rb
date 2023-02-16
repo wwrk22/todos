@@ -12,10 +12,10 @@ RSpec.feature "User vists homepage", type: :feature do
   end
 
   # Example to show how `have_current_path` works.
-  scenario "at the correct path" do
-    # We expect the page that we `visit` to have the path returned by
-    # `root_path`.
+  scenario "while not signed in" do
+    # If not signed in, user is redirected to the path /sessions/new, so we
+    # want to check that the page we land on has that path.
     visit root_path
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(new_session_path)
   end
 end
